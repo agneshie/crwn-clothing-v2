@@ -6,7 +6,7 @@ import {
 import Root from './routes/Root/Root.component';
 import ErrorPage from './ErrorPage';
 import Home from './routes/Home/Home.component';
-import SignIn from './routes/SignIn/SignIn.component';
+import Authentication from './routes/Authentication/Authentication.component';
 
 
 const Shop = () => {
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
         element: <Shop />
       },
       {
-        path: "sign-in",
-        element: <SignIn />
+        path: "auth",
+        element: <Authentication />
       }
     ],
   },

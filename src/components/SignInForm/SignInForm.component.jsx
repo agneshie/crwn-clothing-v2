@@ -1,14 +1,12 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import FormInput from "../FormInput/FormInput.component";
 import Button from "../Button/Button.component";
 
-import { UserContext } from "../../contexts/User.context";
 
 import { 
   signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup,
-  createUserDocumentFromAuth
+  signInWithGooglePopup
 } from "../../utils/firebase/firebase.utils";
 
 import "./SignInForm.styles.scss";
@@ -21,8 +19,6 @@ const SignInForm = () => {
 
   const [ formFields, setFormFields ] = useState(defaultFormFields);
   const { email, password } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -40,8 +36,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(email, password);
-      setCurrentUser(user);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
       
     } catch (error) {
@@ -57,11 +52,12 @@ const SignInForm = () => {
   const signInWithGoogle = async () => {
 
     try {
-      const { user } = await signInWithGooglePopup();
-      await createUserDocumentFromAuth(user);
+      await signInWithGooglePopup();
     } catch (error) {
       if (error.code === "auth/popup-closed-by-user") {
         alert("Google popup closed by user");
+      } else if (error.code === "auth/cancelled-popup-request") {
+        alert("Google cancelled popup by user");
       } else {
         alert(`There was an error signing in Google. ${error.message}`);
       }

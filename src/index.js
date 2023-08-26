@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 import { UserProvider } from './contexts/User.context';
+import { ProductsProvider } from './contexts/Products.context';
 
 import './index.scss';
 
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <App />
+      <ProductsProvider>
+        <App />
+      </ProductsProvider>
     </UserProvider>
   </React.StrictMode>
 );

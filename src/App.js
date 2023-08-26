@@ -7,13 +7,8 @@ import Root from './routes/Root/Root.component';
 import ErrorPage from './ErrorPage';
 import Home from './routes/Home/Home.component';
 import Authentication from './routes/Authentication/Authentication.component';
+import Shop from './routes/Shop/Shop.component';
 
-
-const Shop = () => {
-  return(
-    <h1>I am the Shop page</h1>
-  );
-}
 
 const router = createBrowserRouter([
   {

@@ -1,7 +1,13 @@
-.products-container {
+.category-title {
+  font-size: 38px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.category-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
-  column-gap: 10px;
+  column-gap: 20px;
   row-gap: 50px;
   justify-content: center;
 }

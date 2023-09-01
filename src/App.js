@@ -9,7 +9,7 @@ import Home from './routes/Home/Home.component';
 import Authentication from './routes/Authentication/Authentication.component';
 import Shop from './routes/Shop/Shop.component';
 import Checkout from './routes/Checkout/Checkout.component';
-
+import Category from './routes/Category/Category.component';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />
+      },
+      {
+        path: "shop/:category",
+        element: <Category />
       },
       {
         path: "auth",

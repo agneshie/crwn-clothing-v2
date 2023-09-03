@@ -6,7 +6,7 @@ import { CategoriesContext } from "../../contexts/Categories.context";
 
 import ProductCard from "../../components/ProductCard/ProductCard.component";
 
-import "./Category.styles.scss";
+import { CategoryTitle, CategoryContainer } from "./Category.styles";
 
 
 const Category = () => {
@@ -20,8 +20,8 @@ const Category = () => {
 
   return(
     <Fragment>
-      <h2 className="category-title">{category.toUpperCase()}</h2>
-      <div className="category-container">
+      <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      <CategoryContainer>
         {
           products && products.map((product) => {
             return(
@@ -29,7 +29,7 @@ const Category = () => {
             )
           })
         }
-      </div>
+      </CategoryContainer>
     </Fragment>
   );
 }

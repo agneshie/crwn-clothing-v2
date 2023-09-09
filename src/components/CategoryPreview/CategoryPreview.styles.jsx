@@ -10,13 +10,14 @@ export const CategoryPreviewContainer = styled.div`
   
 export const Title = styled(Link)`
   font-size: 28px;
-    margin-bottom: 25px;
-    cursor: pointer;
+  margin-bottom: 25px;
+  cursor: pointer;
 `;
 
 export const Preview = styled.div`
   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
-    column-gap: 20px;
-    justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+  column-gap: 20px;
+  row-gap: 50px;
+  justify-content: center;
 `;

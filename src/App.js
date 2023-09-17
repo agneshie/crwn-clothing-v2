@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+
+
+import { onAuthStateChangedListener, createUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
+import { setCurrentUser } from "./store/user/user.action";
 
 import Root from './routes/Root/Root.component';
 import ErrorPage from './ErrorPage';
@@ -42,6 +48,21 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = () => onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+
+    });
+    return unsubscribe;
+  }, []);
+
+
+
   return (
     <RouterProvider router={router} />
   );

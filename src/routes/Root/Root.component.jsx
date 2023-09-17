@@ -19,8 +19,10 @@ import {
   LogoContainer 
 } from './Root.styles';
 
+
 const Root = () => {
   const currentUser = useSelector(selectCurrentUser);
+  
   const { isCartOpen } = useContext(CartContext);
 
   return(

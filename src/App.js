@@ -11,7 +11,7 @@ import {
   getCategoriesAndDocuments 
 } from "./utils/firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.action";
-import { setCategoriesMap } from "./store/categories/category.action";
+import { setCategories } from "./store/categories/category.action";
 
 import Root from './routes/Root/Root.component';
 import ErrorPage from './ErrorPage';
@@ -68,8 +68,8 @@ const App = () => {
 
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      dispatch(setCategoriesMap(categoryMap));      
+      const categoriesArray = await getCategoriesAndDocuments();
+      dispatch(setCategories(categoriesArray));      
     }
 
     getCategoriesMap();

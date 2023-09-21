@@ -27,7 +27,7 @@ export const HeaderColumn = styled.div`
   }
 `;
 
-export const Total = styled`
+export const Total = styled.span`
   margin-top: 30px;
   margin-left: auto;
   font-size: 36px;
